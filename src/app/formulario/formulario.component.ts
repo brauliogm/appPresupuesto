@@ -15,8 +15,20 @@ export class FormularioComponent {
   constructor(private operaciones: OperacionesService){}
   
   nuevoMovimiento(){
-    let movimineto1 = new Movimiento(this.descripcion, this.valor, this.accionSeleccionada);
-    this.operaciones.agregarMovimiento(movimineto1);
+    let movimiento1 = new Movimiento(this.descripcion, this.valor, this.accionSeleccionada);
+    this.operaciones.agregarMovimiento(movimiento1);
+    if (movimiento1.tipo == "ing") {
+
+      this.operaciones.ingresoEmitido.emit(movimiento1);
+      
+    } else if (movimiento1.tipo == "egr"){
+      
+      this.operaciones.egresoEmitido.emit(movimiento1);
+      
+    }
+
+    this.descripcion = "";
+    this.valor = 0;
     
   }
 

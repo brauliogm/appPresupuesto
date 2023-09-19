@@ -10,23 +10,23 @@ import { Movimiento } from './movimiento.model';
 export class CabeceraComponent {
   ingresosLista:Movimiento[] = [];
   egresosLista:Movimiento[] = [];
-  ingreso:number = this.operaciones.ingresoSer;
-  egreso:number = this.operaciones.egresoSer;
-  presupuesto:number = 0;
-  porcentaje:number = this.operaciones.porcentajeSer;
+  ingreso:number = 0;
+  egreso:number = 0;
+  porcentaje:number = (this.egreso / this.ingreso) * 100;
 
   constructor(private operaciones: OperacionesService){
+    operaciones.ingresoEmitido.subscribe(
+      (ingreso: Movimiento) => {this.ingreso = this.ingreso + ingreso.valor}
+    )
+    operaciones.egresoEmitido.subscribe(
+      (egreso: Movimiento) => {this.egreso = this.egreso + egreso.valor}
+    )
   }
 
   ngOnInit(){
     this.ingresosLista = this.operaciones.ingresosLista;
-    this.ingresosLista.forEach(cantidad => {this.ingreso =+ cantidad.valor});
-    console.log(this.ingreso);
     
-    this.egresosLista = this.operaciones.egresosLista;
-    this.egresosLista.forEach(cantidad => {
-      this.egreso =+ cantidad.valor;
-    });
+    this.egresosLista = this.operaciones.egresosLista;    
   }
 
 
