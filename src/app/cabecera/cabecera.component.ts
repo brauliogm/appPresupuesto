@@ -8,20 +8,26 @@ import { Movimiento } from './movimiento.model';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
-  balance: Movimiento[] = [];
-  ingreso:number;
-  egreso:number;
-  presupuesto:number;
-  porcentaje:number;
+  ingresosLista:Movimiento[] = [];
+  egresosLista:Movimiento[] = [];
+  ingreso:number = this.operaciones.ingresoSer;
+  egreso:number = this.operaciones.egresoSer;
+  presupuesto:number = 0;
+  porcentaje:number = this.operaciones.porcentajeSer;
 
-  constructor(private operaciones: OperacionesService){}
+  constructor(private operaciones: OperacionesService){
+  }
 
   ngOnInit(){
-    this.balance = this.operaciones.balanceSer;
-    this.ingreso = this.operaciones.ingresoSer;
-    this.egreso = this.operaciones.egresoSer;
-    this.presupuesto = this.operaciones.presupuestoSer;
-    this.operaciones.totalSer();
+    this.ingresosLista = this.operaciones.ingresosLista;
+    this.ingresosLista.forEach(cantidad => {this.ingreso =+ cantidad.valor});
+    console.log(this.ingreso);
+    
+    this.egresosLista = this.operaciones.egresosLista;
+    this.egresosLista.forEach(cantidad => {
+      this.egreso =+ cantidad.valor;
+    });
   }
+
 
 }

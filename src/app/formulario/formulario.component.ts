@@ -14,21 +14,10 @@ export class FormularioComponent {
 
   constructor(private operaciones: OperacionesService){}
   
-  total(){
-    if (this.accionSeleccionada == "ing") {
-      this.operaciones.ingresoSer = this.valor;
-      console.log(this.valor);
-      console.log(this.accionSeleccionada);
-      
-      
-    } else if(this.accionSeleccionada == "egr") {
-      this.operaciones.egresoSer = (this.valor * (-1));
-      console.log(this.valor);
-      console.log(this.accionSeleccionada);
-    }
-
-    let movimineto1 = new Movimiento(this.descripcion, this.valor);
-    this.operaciones.totalSer();
+  nuevoMovimiento(){
+    let movimineto1 = new Movimiento(this.descripcion, this.valor, this.accionSeleccionada);
+    this.operaciones.agregarMovimiento(movimineto1);
+    
   }
 
 }
