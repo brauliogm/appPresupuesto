@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Movimiento } from './cabecera/movimiento.model';
+import { OperacionesService } from './operaciones.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'presupuesto-app';
+  ingresosLista:Movimiento[] = [];
+  egresosLista:Movimiento[] = [];
+
+  constructor(private operaciones: OperacionesService){}
+
+  ngOnInit(){
+    this.ingresosLista = this.operaciones.ingresosLista;
+    this.egresosLista = this.operaciones.egresosLista;
+  }
 }

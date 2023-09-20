@@ -8,8 +8,6 @@ import { Movimiento } from './movimiento.model';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
-  ingresosLista:Movimiento[] = [];
-  egresosLista:Movimiento[] = [];
   ingreso:number = 0;
   egreso:number = 0;
   presupuesto:number = 0;
@@ -38,9 +36,7 @@ export class CabeceraComponent {
   }
 
   ngOnInit(){
-    this.ingresosLista = this.operaciones.ingresosLista;
-    
-    this.egresosLista = this.operaciones.egresosLista;    
+
   }
 
   

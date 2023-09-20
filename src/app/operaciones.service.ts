@@ -37,18 +37,6 @@ export class OperacionesService{
 
     eliminarMovimiento(movimiento: Movimiento){
         this.balanceSer.push( movimiento );
-        if (movimiento.tipo == "ing") {
-
-            this.ingresosLista.push(movimiento);
-            
-        } else if (movimiento.tipo == "egr"){
-            
-            this.egresosLista.push(movimiento);
-            
-        }
-
-        console.log(this.ingresosLista);
-        console.log(this.egresosLista);
         
         
     }

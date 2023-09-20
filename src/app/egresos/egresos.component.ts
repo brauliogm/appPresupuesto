@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movimiento } from '../cabecera/movimiento.model';
 
 @Component({
   selector: 'app-egresos',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./egresos.component.css']
 })
 export class EgresosComponent {
+
+  @Input() egreso: Movimiento;
+
+  ngOnInit(){
+
+  }
 
 }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , Input } from '@angular/core';
+import { Movimiento } from '../cabecera/movimiento.model';
+import { OperacionesService } from '../operaciones.service';
 
 @Component({
   selector: 'app-ingresos',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./ingresos.component.css']
 })
 export class IngresosComponent {
+  
+  @Input() ingreso: Movimiento;
+
+  constructor(private operaciones: OperacionesService){}
+
+  eliminarIngreso(){
+    //this.operaciones.eliminarMovimiento();
+  }
 
 }
