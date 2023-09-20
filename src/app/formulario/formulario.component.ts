@@ -17,19 +17,9 @@ export class FormularioComponent {
   nuevoMovimiento(){
     let movimiento1 = new Movimiento(this.descripcion, this.valor, this.accionSeleccionada);
     this.operaciones.agregarMovimiento(movimiento1);
-    if (movimiento1.tipo == "ing") {
-
-      this.operaciones.ingresoEmitido.emit(movimiento1);
-      
-    } else if (movimiento1.tipo == "egr"){
-      
-      this.operaciones.egresoEmitido.emit(movimiento1);
-      
-    }
-
+    this.operaciones.movimientoEmitido.emit(movimiento1);
     this.descripcion = "";
     this.valor = 0;
-    
   }
 
 }

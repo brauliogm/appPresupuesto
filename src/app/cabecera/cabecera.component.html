@@ -4,12 +4,12 @@
             Presupuesto Disponible:
         </div>
         
-        <div class="presupuesto_valor">{{ingreso - egreso}}</div>
+        <div class="presupuesto_valor">$ {{presupuesto.toFixed(2)}}</div>
         
         <div class="presupuesto_ingreso limpiarEstilos">
             <div class="presupuesto_ingreso--texto">Ingresos</div>
             <div class="right">
-                <div class="presupuesto_ingreso--valor">+ {{ingreso}}</div>
+                <div class="presupuesto_ingreso--valor">+ {{ingreso.toFixed(2)}}</div>
                 <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
             </div>
         </div>
@@ -17,8 +17,8 @@
         <div class="presupuesto_egreso limpiarEstilos">
             <div class="presupuesto_egreso--text">Egresos</div>
             <div class="right limpiarEstilos">
-                <div class="presupuesto_egreso--valor">- {{egreso}}</div>
-                <div class="presupuesto_egreso--porcentaje">{{(egreso / ingreso) * 100}}%</div>
+                <div class="presupuesto_egreso--valor">- {{egreso.toFixed(2)}}</div>
+                <div class="presupuesto_egreso--porcentaje">{{porcentaje}}%</div>
             </div>
         </div>
     </div>

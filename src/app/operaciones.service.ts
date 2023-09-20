@@ -12,8 +12,7 @@ export class OperacionesService{
     presupuestoSer:number = this.ingresoSer - this.egresoSer;
     porcentajeSer:number = (this.egresoSer / this.ingresoSer) * 100;
 
-    ingresoEmitido = new EventEmitter<Movimiento>();
-    egresoEmitido = new EventEmitter<Movimiento>();
+    movimientoEmitido = new EventEmitter<Movimiento>();
 
     agregarMovimiento(movimiento: Movimiento){
         this.balanceSer.push( movimiento );
