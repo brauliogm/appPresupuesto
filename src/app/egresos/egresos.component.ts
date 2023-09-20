@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Movimiento } from '../cabecera/movimiento.model';
+import { OperacionesService } from '../operaciones.service';
 
 @Component({
   selector: 'app-egresos',
@@ -8,10 +9,15 @@ import { Movimiento } from '../cabecera/movimiento.model';
 })
 export class EgresosComponent {
 
+  @Input() index: number;
   @Input() egreso: Movimiento;
+  porcentajeEgreso:number;
 
-  ngOnInit(){
+  constructor(private operaciones: OperacionesService){}
 
+  eliminarEgreso(){
+    this.operaciones.movimientoEliminado.emit(this.egreso);
+    this.operaciones.eliminarMovimiento(this.egreso, this.index);
   }
 
 }

@@ -8,13 +8,15 @@ import { OperacionesService } from '../operaciones.service';
   styleUrls: ['./ingresos.component.css']
 })
 export class IngresosComponent {
-  
+
+  @Input() index: number;
   @Input() ingreso: Movimiento;
 
   constructor(private operaciones: OperacionesService){}
 
   eliminarIngreso(){
-    //this.operaciones.eliminarMovimiento();
+    this.operaciones.movimientoEliminado.emit(this.ingreso);
+    this.operaciones.eliminarMovimiento(this.ingreso, this.index);
   }
 
 }

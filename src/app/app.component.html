@@ -10,8 +10,9 @@
         <h2 class="ingreso_titulo">Ingresos</h2>
                 
         <app-ingresos
-        *ngFor="let ingreso of ingresosLista"
+        *ngFor="let ingreso of ingresosLista; let i = index"
         [ingreso] = "ingreso"
+        [index] = "i"
         >
         
         </app-ingresos>
@@ -24,8 +25,9 @@
         <h2 class="egreso_titulo">Egresos</h2>
             
             <app-egresos
-            *ngFor="let egreso of egresosLista"
+            *ngFor="let egreso of egresosLista; let i = index"
             [egreso] = "egreso"
+            [index] = "i"
             >
 
             </app-egresos>
