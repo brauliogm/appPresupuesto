@@ -23,7 +23,6 @@ export class CabeceraComponent {
         }
         this.porcentajeYPresupuesto();
       }
-      
     )
     operaciones.movimientoEliminado.subscribe(
       (movimiento: Movimiento) => {
@@ -39,7 +38,7 @@ export class CabeceraComponent {
   }
 
   ngOnInit(){
-
+    
   }
 
   porcentajeYPresupuesto(){

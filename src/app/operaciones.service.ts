@@ -9,6 +9,7 @@ export class OperacionesService{
 
     movimientoEmitido = new EventEmitter<Movimiento>();
     movimientoEliminado = new EventEmitter<Movimiento>();
+    ingresoParaPorcentaje = new EventEmitter<number>();
 
     agregarMovimiento(movimiento: Movimiento){
         if (movimiento.tipo == "ing") {
