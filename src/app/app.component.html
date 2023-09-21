@@ -1,4 +1,11 @@
-<app-cabecera></app-cabecera>
+<app-cabecera
+[ingreso] = "ingreso"
+[egreso] = "egreso"
+[presupuesto] = "presupuesto"
+[porcentaje] = "porcentaje"
+>
+
+</app-cabecera>
 
 <app-formulario></app-formulario>
 
@@ -28,6 +35,7 @@
             *ngFor="let egreso of egresosLista; let i = index"
             [egreso] = "egreso"
             [index] = "i"
+            [ingreso] = "ingreso"
             >
 
             </app-egresos>

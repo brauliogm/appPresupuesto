@@ -9,32 +9,21 @@ export class OperacionesService{
 
     movimientoEmitido = new EventEmitter<Movimiento>();
     movimientoEliminado = new EventEmitter<Movimiento>();
-    ingresoParaPorcentaje = new EventEmitter<number>();
 
     agregarMovimiento(movimiento: Movimiento){
         if (movimiento.tipo == "ing") {
-
             this.ingresosLista.push(movimiento);
-            
         } else if (movimiento.tipo == "egr"){
-            
             this.egresosLista.push(movimiento);
-            
         }
-        
     }
 
     eliminarMovimiento(movimiento: Movimiento, index:number){
-        if (movimiento.tipo == "ing") {     
-
+        if (movimiento.tipo == "ing") {
             this.ingresosLista.splice(index, 1);
-
         } else if (movimiento.tipo == "egr"){
-            
             this.egresosLista.splice(index, 1);
-            
         }
-        
     }
 
 }
