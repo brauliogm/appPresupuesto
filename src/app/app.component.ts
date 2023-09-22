@@ -19,9 +19,9 @@ export class AppComponent {
     operaciones.movimientoEmitido.subscribe(
       (movimiento: Movimiento) => {
         if (movimiento.tipo == "ing") {
-          this.ingreso = this.ingreso + movimiento.valor
+          this.ingreso += movimiento.valor
         } else if(movimiento.tipo == "egr") {
-          this.egreso = this.egreso + movimiento.valor
+          this.egreso += movimiento.valor
         }
         this.porcentajeYPresupuesto();
       }
@@ -29,9 +29,9 @@ export class AppComponent {
     operaciones.movimientoEliminado.subscribe(
       (movimiento: Movimiento) => {
         if (movimiento.tipo == "ing") {
-          this.ingreso = this.ingreso - movimiento.valor
+          this.ingreso -= movimiento.valor
         } else if(movimiento.tipo == "egr") {
-          this.egreso = this.egreso - movimiento.valor
+          this.egreso -= movimiento.valor
         }
         this.porcentajeYPresupuesto();
       }
