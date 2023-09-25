@@ -1,13 +1,13 @@
-<form>
+<form (ngSubmit)="f.form.valid && nuevoMovimiento()" #f="ngForm">
     <div class="agregar">
         <div class="agregar_contenedor">
-            <select class="agregar_tipo" [(ngModel)]="accionSeleccionada" name="select">
+            <select class="agregar_tipo" [ngClass]="{redfocus: accionSeleccionada === 'egr'}" [(ngModel)]="accionSeleccionada" name="select">
                 <option value="ing" selected>+</option>
                 <option value="egr">-</option>
             </select>
-            <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" [(ngModel)]="descripcion" name="descripcion">
-            <input type="number" class="agregar_valor" placeholder="Valor" [(ngModel)]="valor" name="valor">
-            <button class="agregar_btn" (click)="nuevoMovimiento()"><i class="ion-ios-checkmark-outline"></i></button>
+            <input [ngClass]="{redfocus: accionSeleccionada === 'egr'}" type="text" class="agregar_descripcion" placeholder="Agregar Descripción" [(ngModel)]="descripcion" name="descripcion" required>
+            <input [ngClass]="{redfocus: accionSeleccionada === 'egr'}" type="number" class="agregar_valor" placeholder="Valor" [(ngModel)]="valor" name="valor" required>
+            <button type="submit" class="agregar_btn"><i [ngClass]="{red: accionSeleccionada === 'egr'}" class="ion-ios-checkmark-outline"></i></button>
         </div>
     </div>
 </form>

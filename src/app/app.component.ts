@@ -49,7 +49,7 @@ export class AppComponent {
     } else if (this.ingreso == 0) {
       this.porcentaje = 100;
     } else{
-      this.porcentaje = Math.round((this.egreso / this.ingreso) * 100);
+      this.porcentaje = ((this.egreso / this.ingreso));
     }
     this.presupuesto = this.ingreso - this.egreso;
   }

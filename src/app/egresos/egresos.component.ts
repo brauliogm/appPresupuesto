@@ -18,7 +18,13 @@ export class EgresosComponent {
   constructor(private operaciones: OperacionesService){}
 
   ngOnChanges() {
-    this.porcentaje = Math.round((this.egreso.valor / this.ingreso) * 100);
+    if (this.egreso.valor == 0) {
+      this.porcentaje = 0;
+    } else if (this.ingreso == 0) {
+      this.porcentaje = 100;
+    } else{
+      this.porcentaje = Math.round((this.egreso.valor / this.ingreso) * 100);      
+    }
   }
   
   eliminarEgreso(){
